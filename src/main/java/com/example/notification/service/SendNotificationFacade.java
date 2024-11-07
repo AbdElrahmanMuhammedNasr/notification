@@ -18,7 +18,6 @@ public class SendNotificationFacade {
 
     NotificationManager notificationManager;
     NotificationsService notificationsService;
-    RecipientService recipientService;
 
     public void sendNotification(NotificationRequestDTO notification) {
         new ValidationRecipientFactory(notification.getProviderType()).getValidation().validate(notification.getRecipients());

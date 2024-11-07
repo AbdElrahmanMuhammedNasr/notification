@@ -6,11 +6,14 @@ import com.example.notification.model.enums.DeliveryStatus;
 import com.example.notification.model.enums.Provider;
 import com.example.notification.service.NotificationLogsService;
 import com.example.notification.service.providers.Messenger;
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Objects;
 
 @Slf4j
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Gmail implements Messenger<NotificationDTO , RecipientDTO> {
     Messenger next;
     NotificationLogsService notificationLogsService;
