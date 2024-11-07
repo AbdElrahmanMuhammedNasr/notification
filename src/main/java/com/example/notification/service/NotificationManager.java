@@ -1,7 +1,6 @@
 package com.example.notification.service;
 
 import com.example.notification.model.dto.NotificationDTO;
-import com.example.notification.model.dto.request.NotificationRequestDTO;
 import com.example.notification.service.providers.MessengerChainFactory;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;

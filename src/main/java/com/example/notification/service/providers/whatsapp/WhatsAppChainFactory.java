@@ -6,10 +6,10 @@ import com.example.notification.service.providers.ChainFactory;
 
 public class WhatsAppChainFactory implements ChainFactory<NotificationDTO> {
     WhatsApp whatsapp;
-
+    Twillio twilio;
     public WhatsAppChainFactory(NotificationLogsService notificationLogsService) {
         whatsapp = new WhatsApp(notificationLogsService);
-        Twillio twilio = new Twillio(notificationLogsService);
+        twilio = new Twillio(notificationLogsService);
 
         whatsapp.setNext(twilio);
     }

@@ -34,7 +34,6 @@ public class Twillio implements  Messenger<NotificationDTO, RecipientDTO> {
             if(Objects.isNull(this.next))
                 throw new IllegalStateException("No next messenger set");
             return this.next.send(notification, recipient);
-
         }
     }
 
