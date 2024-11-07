@@ -29,7 +29,7 @@ public class Gmail implements Messenger<NotificationDTO , RecipientDTO> {
             notificationLogsService.saveNotificationLogs(this.createLog(Provider.GMAIL, DeliveryStatus.SENT, null, notification.getId(), recipient.getId()));
             return true;
         } else {
-            notificationLogsService.saveNotificationLogs(this.createLog(Provider.GMAIL, DeliveryStatus.SENT, "error", notification.getId(), recipient.getId()));
+            notificationLogsService.saveNotificationLogs(this.createLog(Provider.GMAIL, DeliveryStatus.FAILED, "error", notification.getId(), recipient.getId()));
             if (Objects.isNull(this.next))
                 throw new IllegalStateException("No next messenger set");
             return this.next.send(notification, recipient);
