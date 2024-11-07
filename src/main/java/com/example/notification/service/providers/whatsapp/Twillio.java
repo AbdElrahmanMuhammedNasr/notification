@@ -1,7 +1,6 @@
 package com.example.notification.service.providers.whatsapp;
 
 import com.example.notification.model.dto.NotificationDTO;
-import com.example.notification.model.dto.request.MessageDTO;
 import com.example.notification.model.dto.request.RecipientDTO;
 import com.example.notification.model.enums.DeliveryStatus;
 import com.example.notification.model.enums.Provider;
