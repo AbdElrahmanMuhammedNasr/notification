@@ -1,6 +1,6 @@
 package com.example.notification.service.validations.messages;
 
-import com.example.notification.model.dto.request.MessageDTO;
+import com.example.notification.service.dto.request.MessageDTO;
 import com.example.notification.service.validations.Validations;
 
 import java.util.Objects;

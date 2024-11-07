@@ -1,6 +1,6 @@
 package com.example.notification.service.impl;
 
-import com.example.notification.model.dto.request.RecipientDTO;
+import com.example.notification.service.dto.request.RecipientDTO;
 import com.example.notification.repository.RecipientRepository;
 import com.example.notification.service.RecipientService;
 import lombok.AccessLevel;

@@ -1,8 +1,8 @@
-package com.example.notification.model.dto;
+package com.example.notification.service.dto;
 
-import com.example.notification.model.dto.request.MessageDTO;
-import com.example.notification.model.dto.request.RecipientDTO;
-import com.example.notification.model.enums.*;
+import com.example.notification.service.dto.request.MessageDTO;
+import com.example.notification.service.dto.request.RecipientDTO;
+import com.example.notification.model.enumeration.*;
 import lombok.Data;
 
 import java.util.List;

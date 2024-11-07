@@ -1,7 +1,7 @@
 package com.example.notification.service.impl;
 
 import com.example.notification.model.NotificationsLogs;
-import com.example.notification.model.dto.NotificationLogsDTO;
+import com.example.notification.service.dto.NotificationLogsDTO;
 import com.example.notification.repository.NotificationsLogsRepository;
 import com.example.notification.service.NotificationLogsService;
 import com.example.notification.service.mapper.NotificationsLogsMapper;

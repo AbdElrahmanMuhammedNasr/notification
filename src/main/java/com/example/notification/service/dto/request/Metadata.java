@@ -1,7 +1,7 @@
-package com.example.notification.model.dto.request;
+package com.example.notification.service.dto.request;
 
-  import com.example.notification.model.enums.Priority;
- import com.example.notification.model.enums.SentBy;
+  import com.example.notification.model.enumeration.Priority;
+ import com.example.notification.model.enumeration.SentBy;
  import lombok.AccessLevel;
  import lombok.Data;
  import lombok.experimental.FieldDefaults;

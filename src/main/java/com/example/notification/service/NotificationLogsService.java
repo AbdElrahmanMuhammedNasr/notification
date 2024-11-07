@@ -1,6 +1,6 @@
 package com.example.notification.service;
 
-import com.example.notification.model.dto.NotificationLogsDTO;
+import com.example.notification.service.dto.NotificationLogsDTO;
 
 public interface NotificationLogsService {
 

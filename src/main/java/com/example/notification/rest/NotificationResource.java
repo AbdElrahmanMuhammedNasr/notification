@@ -1,7 +1,7 @@
 package com.example.notification.rest;
 
 
-import com.example.notification.model.dto.request.NotificationRequestDTO;
+import com.example.notification.service.dto.request.NotificationRequestDTO;
 import com.example.notification.service.SendNotificationFacade;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;

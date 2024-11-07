@@ -1,4 +1,4 @@
-package com.example.notification.model.dto.request;
+package com.example.notification.service.dto.request;
 
 import lombok.AccessLevel;
 import lombok.Data;

@@ -1,8 +1,8 @@
-package com.example.notification.model.dto.request;
+package com.example.notification.service.dto.request;
 
 
-import com.example.notification.model.enums.NotificationType;
-import com.example.notification.model.enums.ProviderType;
+import com.example.notification.model.enumeration.NotificationType;
+import com.example.notification.model.enumeration.ProviderType;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;

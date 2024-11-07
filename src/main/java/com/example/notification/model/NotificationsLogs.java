@@ -1,7 +1,7 @@
 package com.example.notification.model;
 
 
-import com.example.notification.model.enums.*;
+import com.example.notification.model.enumeration.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;

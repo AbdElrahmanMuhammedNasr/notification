@@ -2,8 +2,8 @@ package com.example.notification.service;
 
 
 import com.example.notification.model.Notifications;
-import com.example.notification.model.dto.NotificationDTO;
-import com.example.notification.model.dto.request.NotificationRequestDTO;
+import com.example.notification.service.dto.NotificationDTO;
+import com.example.notification.service.dto.request.NotificationRequestDTO;
 import com.example.notification.service.validations.messages.ValidationMessageFactory;
 import com.example.notification.service.validations.recipients.ValidationRecipientFactory;
 import lombok.AccessLevel;

@@ -1,4 +1,4 @@
-package com.example.notification.model.enums;
+package com.example.notification.model.enumeration;
 
 public enum Priority {
 

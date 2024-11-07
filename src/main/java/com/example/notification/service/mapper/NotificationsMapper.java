@@ -1,7 +1,7 @@
 package com.example.notification.service.mapper;
 
 import com.example.notification.model.Notifications;
- import com.example.notification.model.dto.NotificationDTO;
+ import com.example.notification.service.dto.NotificationDTO;
  import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring" , uses = { RecipientMapper.class})

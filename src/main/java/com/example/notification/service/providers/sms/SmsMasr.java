@@ -1,10 +1,9 @@
 package com.example.notification.service.providers.sms;
 
-import com.example.notification.model.dto.NotificationDTO;
-import com.example.notification.model.dto.request.MessageDTO;
-import com.example.notification.model.dto.request.RecipientDTO;
-import com.example.notification.model.enums.DeliveryStatus;
-import com.example.notification.model.enums.Provider;
+import com.example.notification.service.dto.NotificationDTO;
+import com.example.notification.service.dto.request.RecipientDTO;
+import com.example.notification.model.enumeration.DeliveryStatus;
+import com.example.notification.model.enumeration.Provider;
 import com.example.notification.service.NotificationLogsService;
 import com.example.notification.service.providers.Messenger;
 import lombok.AccessLevel;

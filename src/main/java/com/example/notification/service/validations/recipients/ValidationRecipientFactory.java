@@ -1,12 +1,10 @@
 package com.example.notification.service.validations.recipients;
 
-import com.example.notification.model.enums.ProviderType;
+import com.example.notification.model.enumeration.ProviderType;
 import com.example.notification.service.validations.Validations;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
-
-import java.util.List;
 
 @Getter
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)

@@ -1,7 +1,7 @@
 package com.example.notification.model;
 
-import com.example.notification.model.dto.request.NotificationRequestDTO;
-import com.example.notification.model.dto.request.RecipientDTO;
+import com.example.notification.service.dto.request.NotificationRequestDTO;
+import com.example.notification.service.dto.request.RecipientDTO;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;

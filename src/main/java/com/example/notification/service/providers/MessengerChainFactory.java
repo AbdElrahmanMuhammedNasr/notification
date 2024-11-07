@@ -1,6 +1,6 @@
 package com.example.notification.service.providers;
 
-import com.example.notification.model.enums.ProviderType;
+import com.example.notification.model.enumeration.ProviderType;
 import com.example.notification.service.NotificationLogsService;
 import com.example.notification.service.providers.email.EmailChainFactory;
 import com.example.notification.service.providers.sms.SmsChainFactory;
