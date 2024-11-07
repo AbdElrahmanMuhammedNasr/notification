@@ -6,7 +6,7 @@ import lombok.experimental.FieldDefaults;
 
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Recipient {
+public class RecipientDTO {
 
     // mobile sms
     String mobile;

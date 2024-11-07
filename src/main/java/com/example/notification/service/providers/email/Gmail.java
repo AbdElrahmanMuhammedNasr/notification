@@ -1,17 +1,17 @@
 package com.example.notification.service.providers.email;
 
-import com.example.notification.model.dto.Message;
+import com.example.notification.model.dto.MessageDTO;
 import com.example.notification.service.providers.Messenger;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Objects;
 
 @Slf4j
-public class Gmail implements Messenger {
+public class Gmail implements Messenger<MessageDTO> {
     Messenger next;
 
     @Override
-    public boolean send(Message message) {
+    public boolean send(MessageDTO message) {
         log.info("send email using Gmail");
         if (Boolean.TRUE) {
             return true;

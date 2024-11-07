@@ -17,9 +17,9 @@ public class NotificationRequestDTO {
 
     ProviderType providerType;
 
-    List<Recipient> recipients;
+    List<RecipientDTO> recipients;
 
-    Message message;
+    MessageDTO message;
 
     Metadata metadata;
 }

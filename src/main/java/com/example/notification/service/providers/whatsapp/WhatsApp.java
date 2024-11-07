@@ -1,6 +1,6 @@
 package com.example.notification.service.providers.whatsapp;
 
-import com.example.notification.model.dto.Message;
+import com.example.notification.model.dto.MessageDTO;
 import com.example.notification.service.providers.Messenger;
 import lombok.AccessLevel;
 import lombok.Setter;
@@ -11,11 +11,11 @@ import java.util.Objects;
 
 @Slf4j
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class WhatsApp implements Messenger {
+public class WhatsApp implements Messenger<MessageDTO> {
     Messenger next;
 
     @Override
-    public boolean send(Message message) {
+    public boolean send(MessageDTO message) {
         log.info("send Message to whatsapp  using whatsapp");
         if(Boolean.FALSE){
             return true;

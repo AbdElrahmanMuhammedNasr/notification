@@ -1,13 +1,13 @@
 package com.example.notification.service.validations.messages;
 
-import com.example.notification.model.dto.Message;
+import com.example.notification.model.dto.MessageDTO;
 import com.example.notification.service.validations.Validations;
 
 import java.util.Objects;
 
-public class PushNotificationMessageValidation implements Validations<Message> {
+public class PushNotificationMessageValidation implements Validations<MessageDTO> {
     @Override
-    public void validate(Message body) {
+    public void validate(MessageDTO body) {
 
         if(Objects.isNull(body.getSubject())){
 

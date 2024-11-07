@@ -1,10 +1,10 @@
 package com.example.notification.service.providers.sms;
 
-import com.example.notification.model.dto.Message;
+import com.example.notification.model.dto.MessageDTO;
 import com.example.notification.service.providers.ChainFactory;
 import com.example.notification.service.providers.email.Gmail;
 
-public class SmsChainFactory implements ChainFactory<Message> {
+public class SmsChainFactory implements ChainFactory<MessageDTO> {
 
     Vodafone vodafone= new Vodafone();
     Twillio twillio= new Twillio();
@@ -16,7 +16,7 @@ public class SmsChainFactory implements ChainFactory<Message> {
     }
 
     @Override
-    public void send(Message message) {
+    public void send(MessageDTO message) {
         if (vodafone.send(message)) {
             System.out.println("Message could not be sent.");
         }

@@ -1,9 +1,9 @@
 package com.example.notification.service.providers.whatsapp;
 
-import com.example.notification.model.dto.Message;
+import com.example.notification.model.dto.MessageDTO;
 import com.example.notification.service.providers.ChainFactory;
 
-public class WhatsAppChainFactory implements ChainFactory<Message> {
+public class WhatsAppChainFactory implements ChainFactory<MessageDTO> {
 
     WhatsApp whatsapp = new WhatsApp();
     Twillio twilio = new Twillio();
@@ -13,7 +13,7 @@ public class WhatsAppChainFactory implements ChainFactory<Message> {
     }
 
     @Override
-    public void send(Message message) {
+    public void send(MessageDTO message) {
         if (!whatsapp.send(message)) {
             System.out.println("Message could not be sent.");
         }

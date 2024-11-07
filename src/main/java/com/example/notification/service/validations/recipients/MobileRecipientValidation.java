@@ -1,14 +1,14 @@
 package com.example.notification.service.validations.recipients;
 
-import com.example.notification.model.dto.Recipient;
+import com.example.notification.model.dto.RecipientDTO;
 import com.example.notification.service.validations.Validations;
 
 import java.util.List;
 
-public class MobileRecipientValidation implements Validations<List<Recipient>> {
+public class MobileRecipientValidation implements Validations<List<RecipientDTO>> {
 
     @Override
-    public void validate(List<Recipient> body) {
+    public void validate(List<RecipientDTO> body) {
         body.forEach(r-> validateNumber(r.getMobile() , r.getCountryCode() ,r.getCountry()));
     }
 

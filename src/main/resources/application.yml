@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: notification
+
+  datasource:
+    url: jdbc:postgresql://localhost:6666/s2b_dev_db?currentSchema=notifications&useSSL=false
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    #      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        temp:
+          use_jdbc_metadata_defaults: false
+
+server:
+    port: 3030
+
+
+

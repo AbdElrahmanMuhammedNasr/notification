@@ -10,7 +10,7 @@ import java.util.List;
 
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Message {
+public class MessageDTO {
 
         String subject;
         String body;
