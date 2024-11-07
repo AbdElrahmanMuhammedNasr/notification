@@ -1,12 +1,13 @@
 package com.example.notification.model;
 
 
+import com.example.notification.model.dto.NotificationDTO;
+import com.example.notification.model.dto.request.NotificationRequestDTO;
 import com.example.notification.model.enums.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-
 import java.io.Serializable;
 import java.util.List;
 
@@ -16,6 +17,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Notifications extends AbstractAuditingEntity<Long>  implements Serializable {
 
@@ -60,5 +62,14 @@ public class Notifications extends AbstractAuditingEntity<Long>  implements Seri
     @OneToMany(mappedBy = "notifications")
     @JsonIgnoreProperties(value = { "recipient", "notifications" }, allowSetters = true)
     List<NotificationsLogs> notificationsLogs;
+
+    @OneToMany(mappedBy = "notifications", cascade ={CascadeType.ALL}  , orphanRemoval = true)
+    @JsonIgnoreProperties(value = { "notificationsLogs" }, allowSetters = true)
+    List<Recipient> recipients;
+
+
+    public static NotificationDTO  createNotificationDTO(NotificationRequestDTO notifications){
+        return new NotificationDTO();
+    }
 
 }

@@ -1,25 +1,25 @@
 package com.example.notification.service.providers.sms;
 
-import com.example.notification.model.dto.MessageDTO;
+import com.example.notification.model.dto.NotificationDTO;
+import com.example.notification.model.dto.request.MessageDTO;
+import com.example.notification.service.NotificationLogsService;
 import com.example.notification.service.providers.ChainFactory;
-import com.example.notification.service.providers.email.Gmail;
 
-public class SmsChainFactory implements ChainFactory<MessageDTO> {
+public class SmsChainFactory implements ChainFactory<NotificationDTO> {
 
-    Vodafone vodafone= new Vodafone();
-    Twillio twillio= new Twillio();
-    SmsMasr smsMasr= new SmsMasr();
+    Twillio twillio;
+    SmsMasr smsMasr;
 
-    public SmsChainFactory() {
-        vodafone.setNext(twillio);
+    public SmsChainFactory(NotificationLogsService notificationLogsService) {
+        twillio = new Twillio(notificationLogsService);
+        smsMasr = new SmsMasr(notificationLogsService);
         twillio.setNext(smsMasr);
     }
 
     @Override
-    public void send(MessageDTO message) {
-        if (vodafone.send(message)) {
-            System.out.println("Message could not be sent.");
-        }
+    public void send(NotificationDTO notificationDTO) {
+        notificationDTO.getRecipients().forEach(recipient -> twillio.send(notificationDTO, recipient));
+
     }
 
 }

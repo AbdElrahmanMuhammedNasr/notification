@@ -35,12 +35,12 @@ public class NotificationsLogs extends AbstractAuditingEntity<Long>  implements 
     @Column(name = "error_message")
     String errorMessage;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "recipient_id")
     @JsonIgnoreProperties(value = { "notificationsLogs" }, allowSetters = true)
     Recipient recipient;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "notification_id")
     @JsonIgnoreProperties(value = { "notificationsLogs" }, allowSetters = true)
     Notifications notifications;

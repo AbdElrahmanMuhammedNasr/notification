@@ -1,22 +1,22 @@
 package com.example.notification.service.providers.whatsapp;
 
-import com.example.notification.model.dto.MessageDTO;
+import com.example.notification.model.dto.NotificationDTO;
+import com.example.notification.service.NotificationLogsService;
 import com.example.notification.service.providers.ChainFactory;
 
-public class WhatsAppChainFactory implements ChainFactory<MessageDTO> {
+public class WhatsAppChainFactory implements ChainFactory<NotificationDTO> {
+    WhatsApp whatsapp;
 
-    WhatsApp whatsapp = new WhatsApp();
-    Twillio twilio = new Twillio();
+    public WhatsAppChainFactory(NotificationLogsService notificationLogsService) {
+        whatsapp = new WhatsApp(notificationLogsService);
+        Twillio twilio = new Twillio(notificationLogsService);
 
-    public WhatsAppChainFactory() {
         whatsapp.setNext(twilio);
     }
 
     @Override
-    public void send(MessageDTO message) {
-        if (!whatsapp.send(message)) {
-            System.out.println("Message could not be sent.");
-        }
+    public void send(NotificationDTO notificationDTO) {
+        notificationDTO.getRecipients().forEach(recipient -> whatsapp.send(notificationDTO, recipient));
     }
 
 }

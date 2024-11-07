@@ -1,4 +1,4 @@
-package com.example.notification.model.dto;
+package com.example.notification.model.dto.request;
 
 
 import com.example.notification.model.enums.NotificationType;

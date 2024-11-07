@@ -1,6 +1,7 @@
 package com.example.notification.service;
 
-import com.example.notification.model.dto.NotificationRequestDTO;
+import com.example.notification.model.dto.NotificationDTO;
+import com.example.notification.model.dto.request.NotificationRequestDTO;
 import com.example.notification.service.providers.MessengerChainFactory;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Service;
 public class NotificationManager {
     MessengerChainFactory messengerChainFactory;
 
-    public void send(NotificationRequestDTO notification) {
-        messengerChainFactory.getProviderFactory(notification.getProviderType()).send(notification.getMessage());
+    public void send(NotificationDTO notification) {
+        messengerChainFactory.getProviderFactory(notification.getProviderType()).send(notification);
     }
 }

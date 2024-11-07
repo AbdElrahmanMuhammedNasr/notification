@@ -5,6 +5,7 @@ public enum Provider {
     SMS_MASR,
     WHATS_APP,
     TWILLIO,
-    
-    FIRE_BASE
+    FIRE_BASE,
+
+    GMAIL
 }
