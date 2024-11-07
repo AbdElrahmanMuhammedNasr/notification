@@ -17,7 +17,8 @@ import java.util.Objects;
 public class WhatsApp implements  Messenger<NotificationDTO, RecipientDTO> {
     Messenger next;
 
-    NotificationLogsService notificationLogsService;
+    final NotificationLogsService notificationLogsService;
+
 
     public WhatsApp(NotificationLogsService notificationLogsService) {
         this.notificationLogsService = notificationLogsService;

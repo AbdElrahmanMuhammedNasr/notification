@@ -18,7 +18,8 @@ import java.util.Objects;
 public class Twillio implements  Messenger<NotificationDTO, RecipientDTO> {
 
     Messenger next;
-    NotificationLogsService notificationLogsService;
+    final NotificationLogsService notificationLogsService;
+
     public Twillio(NotificationLogsService notificationLogsService) {
         this.notificationLogsService = notificationLogsService;
     }

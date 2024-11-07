@@ -16,7 +16,8 @@ import java.util.Objects;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Gmail implements Messenger<NotificationDTO , RecipientDTO> {
     Messenger next;
-    NotificationLogsService notificationLogsService;
+    final NotificationLogsService notificationLogsService;
+
     public Gmail(NotificationLogsService notificationLogsService) {
         this.notificationLogsService = notificationLogsService;
     }

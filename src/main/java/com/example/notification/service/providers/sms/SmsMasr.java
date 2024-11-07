@@ -18,7 +18,7 @@ import java.util.Objects;
 public class SmsMasr implements Messenger<NotificationDTO, RecipientDTO> {
     Messenger next;
 
-    NotificationLogsService notificationLogsService;
+    final NotificationLogsService notificationLogsService;
     public SmsMasr(NotificationLogsService notificationLogsService) {
         this.notificationLogsService = notificationLogsService;
     }
