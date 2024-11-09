@@ -16,7 +16,7 @@ public class SmsChainFactory implements ChainFactory<NotificationDTO> {
     }
 
     @Override
-    public void send(NotificationDTO notificationDTO) {
+    public void start(NotificationDTO notificationDTO) {
         notificationDTO.getRecipients().forEach(recipient -> twillio.send(notificationDTO, recipient));
 
     }

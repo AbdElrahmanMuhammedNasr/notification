@@ -12,7 +12,7 @@ public class EmailChainFactory implements ChainFactory<NotificationDTO> {
     }
 
     @Override
-    public void send(NotificationDTO notificationDTO) {
+    public void start(NotificationDTO notificationDTO) {
         notificationDTO.getRecipients().forEach(recipient -> gmail.send(notificationDTO, recipient));
 
     }
