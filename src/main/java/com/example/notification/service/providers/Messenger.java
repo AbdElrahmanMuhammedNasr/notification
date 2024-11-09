@@ -1,11 +1,11 @@
 package com.example.notification.service.providers;
 
 
-import com.example.notification.model.Notifications;
-import com.example.notification.model.Recipient;
+import com.example.notification.service.dto.NotificationDTO;
 import com.example.notification.service.dto.NotificationLogsDTO;
 import com.example.notification.model.enumeration.DeliveryStatus;
 import com.example.notification.model.enumeration.Provider;
+import com.example.notification.service.dto.request.RecipientsDTO;
 
 public interface Messenger<B, R> {
 
@@ -15,8 +15,8 @@ public interface Messenger<B, R> {
         log.setProvider(provider);
         log.setDeliveryStatus(status);
         log.setErrorMessage(errorMessage);
-        log.setRecipient(Recipient.builder().id(recipientId).build());
-        log.setNotifications(Notifications.builder().id(notificationId).build());
+        log.setRecipient(RecipientsDTO.builder().id(recipientId).build());
+        log.setNotifications(NotificationDTO.builder().id(notificationId).build());
         return log;
     }
 }

@@ -1,23 +1,25 @@
 package com.example.notification.model;
 
+import com.example.notification.service.dto.NotificationDTO;
 import com.example.notification.service.dto.request.NotificationRequestDTO;
-import com.example.notification.service.dto.request.RecipientDTO;
+import com.example.notification.service.dto.request.RecipientsDTO;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "recipients")
-@Getter
-@Setter
+@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Recipient  extends AbstractAuditingEntity<Long> implements Serializable {
+public class Recipients  extends AbstractAuditingEntity<Long> implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -39,23 +41,25 @@ public class Recipient  extends AbstractAuditingEntity<Long> implements Serializ
     @Column(name = "country")
     String country;
 
-
     // email
     @Column(name = "email")
     String email;
 
-
     @OneToMany(mappedBy = "recipient")
     @JsonIgnoreProperties(value = { "recipient", "notifications" }, allowSetters = true)
-    List<NotificationsLogs> notificationsLogs;
+    @JsonManagedReference
+    Set<NotificationsLogs> notificationsLogs;
 
 
-    @ManyToOne(cascade ={CascadeType.ALL})
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "notification_id" ,nullable = false)
     @JsonIgnoreProperties(value = { "recipient", "notifications" }, allowSetters = true)
-    Notifications notifications;
+    @JsonManagedReference
+    Notifications notification;
 
-    public static RecipientDTO createRecipientDTO(NotificationRequestDTO notification){
-        return new RecipientDTO();
+
+
+    public static List<RecipientsDTO> createRecipientsDTO(NotificationRequestDTO notification, Long notificationId){
+        return notification.getRecipients().stream().peek(recipient ->recipient.setNotification(NotificationDTO.builder().id(notificationId).build())   ).toList();
     }
 }

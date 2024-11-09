@@ -1,9 +1,9 @@
 package com.example.notification.service.dto;
 
-import com.example.notification.model.Notifications;
-import com.example.notification.model.Recipient;
+
 import com.example.notification.model.enumeration.DeliveryStatus;
 import com.example.notification.model.enumeration.Provider;
+import com.example.notification.service.dto.request.RecipientsDTO;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
@@ -15,6 +15,6 @@ public class NotificationLogsDTO {
     Provider provider;
     DeliveryStatus deliveryStatus;
     String errorMessage;
-    Recipient recipient;
-    Notifications notifications;
+    RecipientsDTO recipient;
+    NotificationDTO notifications;
 }

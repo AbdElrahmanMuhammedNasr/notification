@@ -1,7 +1,7 @@
 package com.example.notification.service.providers.whatsapp;
 
 import com.example.notification.service.dto.NotificationDTO;
-import com.example.notification.service.dto.request.RecipientDTO;
+import com.example.notification.service.dto.request.RecipientsDTO;
 import com.example.notification.model.enumeration.DeliveryStatus;
 import com.example.notification.model.enumeration.Provider;
 import com.example.notification.service.NotificationLogsService;
@@ -13,7 +13,7 @@ import java.util.Objects;
 
 @Slf4j
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class WhatsApp implements  Messenger<NotificationDTO, RecipientDTO> {
+public class WhatsApp implements  Messenger<NotificationDTO, RecipientsDTO> {
     Messenger next;
 
     final NotificationLogsService notificationLogsService;
@@ -25,7 +25,7 @@ public class WhatsApp implements  Messenger<NotificationDTO, RecipientDTO> {
 
 
     @Override
-    public boolean send(NotificationDTO notification,  RecipientDTO recipient) {
+    public boolean send(NotificationDTO notification,  RecipientsDTO recipient) {
         log.info("send Message to whatsapp  using whatsapp");
         if(Boolean.FALSE){
             notificationLogsService.saveNotificationLogs(this.createLog(Provider.WHATS_APP, DeliveryStatus.SENT, null, notification.getId(), recipient.getId()));

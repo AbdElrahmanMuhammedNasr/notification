@@ -38,7 +38,7 @@ public class NotificationsLogs extends AbstractAuditingEntity<Long>  implements 
     @ManyToOne
     @JoinColumn(name = "recipient_id")
     @JsonIgnoreProperties(value = { "notificationsLogs" }, allowSetters = true)
-    Recipient recipient;
+    Recipients recipient;
 
     @ManyToOne
     @JoinColumn(name = "notification_id")

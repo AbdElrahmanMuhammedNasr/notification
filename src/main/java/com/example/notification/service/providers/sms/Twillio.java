@@ -1,7 +1,7 @@
 package com.example.notification.service.providers.sms;
 
 import com.example.notification.service.dto.NotificationDTO;
-import com.example.notification.service.dto.request.RecipientDTO;
+import com.example.notification.service.dto.request.RecipientsDTO;
 import com.example.notification.model.enumeration.DeliveryStatus;
 import com.example.notification.model.enumeration.Provider;
 import com.example.notification.service.NotificationLogsService;
@@ -14,7 +14,7 @@ import java.util.Objects;
 
 @Slf4j
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Twillio implements  Messenger<NotificationDTO, RecipientDTO> {
+public class Twillio implements  Messenger<NotificationDTO, RecipientsDTO> {
     Messenger next;
 
     final NotificationLogsService notificationLogsService;
@@ -24,7 +24,7 @@ public class Twillio implements  Messenger<NotificationDTO, RecipientDTO> {
     }
 
     @Override
-    public boolean send(NotificationDTO notification,  RecipientDTO recipient) {
+    public boolean send(NotificationDTO notification,  RecipientsDTO recipient) {
         log.info("send sms using TWILIO");
         if(Boolean.TRUE){
             notificationLogsService.saveNotificationLogs(this.createLog(Provider.TWILLIO, DeliveryStatus.SENT, null, notification.getId(), recipient.getId()));

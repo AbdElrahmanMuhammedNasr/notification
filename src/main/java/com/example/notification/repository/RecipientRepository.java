@@ -1,8 +1,8 @@
 package com.example.notification.repository;
 
-import com.example.notification.model.Recipient;
+import com.example.notification.model.Recipients;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface RecipientRepository extends JpaRepository<Recipient, Long>, JpaSpecificationExecutor<Recipient> {
+public interface RecipientRepository extends JpaRepository<Recipients, Long>, JpaSpecificationExecutor<Recipients> {
 }

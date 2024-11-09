@@ -1,12 +1,15 @@
 package com.example.notification.service.dto.request;
 
+import com.example.notification.service.dto.NotificationDTO;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
 
 @Data
+@Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class RecipientDTO {
+public class RecipientsDTO {
     Long id;
     // mobile sms
     String mobile;
@@ -18,4 +21,6 @@ public class RecipientDTO {
 
     // push notification
     String userId;
+
+    NotificationDTO notification;
 }

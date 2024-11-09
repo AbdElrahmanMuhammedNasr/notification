@@ -1,13 +1,15 @@
 package com.example.notification.service.dto;
 
 import com.example.notification.service.dto.request.MessageDTO;
-import com.example.notification.service.dto.request.RecipientDTO;
+import com.example.notification.service.dto.request.RecipientsDTO;
 import com.example.notification.model.enumeration.*;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
+@Builder
 public class NotificationDTO {
     Long id;
     ProviderType providerType;
@@ -23,5 +25,5 @@ public class NotificationDTO {
 
     Priority priority = Priority.NORMAL;
     SentBy sentBy = SentBy.SYSTEM;
-    List<RecipientDTO> recipients;
+    List<RecipientsDTO> recipients;
 }
