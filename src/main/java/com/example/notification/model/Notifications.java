@@ -42,7 +42,6 @@ public class Notifications extends AbstractAuditingEntity<Long>  implements Seri
     @Column(name = "body")
     String body;
 
-    List<String> attachmentsUrls;
 
     @Column(name = "language")
     @Enumerated(EnumType.STRING)
@@ -59,6 +58,9 @@ public class Notifications extends AbstractAuditingEntity<Long>  implements Seri
     @Column(name = "sent_by")
     @Enumerated(EnumType.STRING)
     SentBy sentBy;
+
+    @Column(name = "is_read")
+    Boolean isRead =  Boolean.FALSE ;
 
     @OneToMany(mappedBy = "notifications", orphanRemoval = true)
     @JsonIgnoreProperties(value = { "recipient", "notifications" }, allowSetters = true)
@@ -77,7 +79,6 @@ public class Notifications extends AbstractAuditingEntity<Long>  implements Seri
         return NotificationDTO.builder()
                 .body(notifications.getMessage().getBody())
                 .subject(notifications.getMessage().getSubject())
-                .attachmentsUrls(notifications.getMessage().getAttachmentsUrls())
                 .language(notifications.getMessage().getLanguage())
                 .messageContentType(notifications.getMessage().getMessageContentType())
                 .notificationType(notifications.getNotificationType())

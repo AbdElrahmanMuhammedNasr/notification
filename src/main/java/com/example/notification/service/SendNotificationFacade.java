@@ -3,6 +3,7 @@ package com.example.notification.service;
 
 import com.example.notification.model.Notifications;
 import com.example.notification.model.Recipients;
+import com.example.notification.model.enumeration.ProviderType;
 import com.example.notification.service.dto.NotificationDTO;
 import com.example.notification.service.dto.request.NotificationRequestDTO;
 import com.example.notification.service.dto.request.RecipientsDTO;
@@ -33,6 +34,9 @@ public class SendNotificationFacade {
 
         List<RecipientsDTO> recipientsDTO = Recipients.createRecipientsDTO(notification, savedNotificationDTO.getId());
         List<RecipientsDTO> recipientDTOS = recipientService.saveRecipient(recipientsDTO);
+
+        if (notification.getProviderType().equals(ProviderType.APPLICATION))
+            return;
 
         savedNotificationDTO.setRecipients(recipientDTOS);
         notificationManager.send(savedNotificationDTO);

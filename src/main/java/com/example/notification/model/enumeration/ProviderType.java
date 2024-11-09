@@ -5,5 +5,6 @@ public enum ProviderType {
     SMS,
     WHATSAPP,
     EMAIL,
-    PUSH_NOTIFICATION
+    PUSH_NOTIFICATION,
+    APPLICATION
 }

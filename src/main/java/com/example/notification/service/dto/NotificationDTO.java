@@ -17,7 +17,6 @@ public class NotificationDTO {
 
     String subject;
     String body;
-    List<String> attachmentsUrls;
     Language language;
     MessageContentType messageContentType;
 
