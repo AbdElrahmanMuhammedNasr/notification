@@ -14,6 +14,6 @@ public class NotificationManager {
     MessengerChainFactory messengerChainFactory;
 
     public void send(NotificationDTO notification) {
-        messengerChainFactory.getProviderFactory(notification.getProviderType()).send(notification);
+        messengerChainFactory.getProviderFactory(notification.getProviderType()).start(notification);
     }
 }
