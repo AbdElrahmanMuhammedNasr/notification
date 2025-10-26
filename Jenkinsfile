@@ -65,15 +65,15 @@ pipeline {
 		}
 		stage('SonarQube Analysis') {
 			steps {
-				withSonarQubeEnv('sonar-scanner') {
-					sh 'mvn sonar:sonar -Dsonar.projectKey=MyProject -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$sonar-token'
+				withCredentials([string(credentialsId: 'SONAR_AUTH_TOKEN', variable: 'SONAR_TOKEN')]) {
+					sh "mvn sonar:sonar -Dsonar.projectKey=MyProject -Dsonar.login=$SONAR_TOKEN"
 				}
 			}
 		}
 		stage('Quality Gate') {
 			steps {
 				timeout(time: 3, unit: 'MINUTES') {
-					waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token'
+					waitForQualityGate abortPipeline: true
 
 				}
 			}
