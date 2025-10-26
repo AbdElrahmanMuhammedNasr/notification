@@ -11,8 +11,8 @@ pipeline {
 		NEXUS_VERSION = 'nexus3'
 		NEXUS_PROTOCOL = "http"
 		NEXUS_URL = "host.docker.internal:8081"
-		NEXUS_REPOSITORY = "vprofile-repo"
-		NEXUS_REPO_ID = "vprofile-repo"
+		NEXUS_REPOSITORY = "notification-repo"
+		NEXUS_REPO_ID = "notification-repo"
 		NEXUS_CREDENTIAL_ID = "nexuslogin"
 		ARTVERSION = "${env.BUILD_ID}"
 	}
