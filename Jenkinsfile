@@ -65,8 +65,8 @@ pipeline {
 		}
 		stage('SonarQube Analysis') {
 			steps {
-				withCredentials([string(credentialsId: 'SONAR_AUTH_TOKEN', variable: 'SONAR_TOKEN')]) {
-					sh "mvn sonar:sonar -Dsonar.projectKey=MyProject -Dsonar.login=$SONAR_TOKEN"
+				withCredentials([string(credentialsId: 'sonar-token', variable: 'sonar-token')]) {
+					sh "mvn sonar:sonar -Dsonar.projectKey=MyProject -Dsonar.login=$sonar-token"
 				}
 			}
 		}
