@@ -6,7 +6,8 @@ pipeline {
 	}
 	environment {
 
-		SCANNER_HOME = tool 'sonar-scanner'
+		SONARQUBE_SERVER = 'sonar-scanner'
+		SONAR_HOST_URL = 'http://host.docker.internal:9000' // your SonarQube URL
 
 		NEXUS_VERSION = 'nexus3'
 		NEXUS_PROTOCOL = "http"
@@ -59,6 +60,21 @@ pipeline {
 			post {
 				success {
 					echo 'Generated Analysis Result'
+				}
+			}
+		}
+		stage('SonarQube Analysis') {
+			steps {
+				withSonarQubeEnv('sonar-scanner') {
+					sh 'mvn sonar:sonar -Dsonar.projectKey=MyProject -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$sonar-token'
+				}
+			}
+		}
+		stage('Quality Gate') {
+			steps {
+				timeout(time: 3, unit: 'MINUTES') {
+					waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token'
+
 				}
 			}
 		}
