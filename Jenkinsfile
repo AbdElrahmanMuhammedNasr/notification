@@ -29,6 +29,39 @@ pipeline {
 				git branch: 'msater', url: 'https://github.com/AbdElrahmanMuhammedNasr/notification.git'
 			}
 		}
+		stage('BUILD') {
+			steps {
+				sh 'mvn clean install -DskipTests'
+			}
+			post {
+				success {
+					echo 'Now Archiving...'
+ 				}
+			}
+		}
+
+		stage('UNIT TEST') {
+			steps {
+				sh 'mvn test'
+			}
+		}
+
+		stage('INTEGRATION TEST') {
+			steps {
+				sh 'mvn verify -DskipUnitTests'
+			}
+		}
+
+		stage('CODE ANALYSIS WITH CHECKSTYLE') {
+			steps {
+				sh 'mvn checkstyle:checkstyle'
+			}
+			post {
+				success {
+					echo 'Generated Analysis Result'
+				}
+			}
+		}
 
 	}
 }
