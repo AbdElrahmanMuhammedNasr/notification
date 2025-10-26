@@ -26,7 +26,7 @@ pipeline {
 
 		stage("Git Checkout") {
 			steps {
-				git branch: 'msater', url: 'https://github.com/AbdElrahmanMuhammedNasr/notification.git'
+				git branch: 'master', url: 'https://github.com/AbdElrahmanMuhammedNasr/notification.git'
 			}
 		}
 		stage('BUILD') {
