@@ -41,17 +41,17 @@ pipeline {
 			}
 		}
 
-		//stage('UNIT TEST') {
-		//	steps {
-		//		sh 'mvn test'
-		//	}
-		//}
+		stage('UNIT TEST') {
+			steps {
+				sh 'mvn test'
+			}
+		}
 
-		//stage('INTEGRATION TEST') {
-		//	steps {
-		//		sh 'mvn verify -DskipUnitTests'
-		//	}
-		//}
+		stage('INTEGRATION TEST') {
+			steps {
+				sh 'mvn verify -DskipUnitTests'
+			}
+		}
 
 		stage('CODE ANALYSIS WITH CHECKSTYLE') {
 			steps {
@@ -65,8 +65,8 @@ pipeline {
 		}
 		stage('SonarQube Analysis') {
 			steps {
-				withCredentials([string(credentialsId: 'sonar-token', variable: 'sonar-token')]) {
-					sh "mvn sonar:sonar -Dsonar.projectKey=MyProject -Dsonar.login=$sonar-token"
+				withCredentials([string(credentialsId: 'sonar-token', variable: 'TOKEN')]) {
+					sh "mvn sonar:sonar -Dsonar.projectKey=MyProject -Dsonar.login=$TOKEN"
 				}
 			}
 		}
