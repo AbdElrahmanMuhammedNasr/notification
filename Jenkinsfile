@@ -64,13 +64,18 @@ pipeline {
 				}
 			}
 		}*/
-		stage('SonarQube Analysis') {
-			steps {
-				withSonarQubeEnv('soner-qube') {
-                   sh 'mvn clean package sonar:sonar'
-                }
-			}
-		}
+
+
+	stage('SonarQube Analysis') {
+            environment {
+                SONAR_AUTH_TOKEN = credentials('sonar-token') 
+            }
+            steps {
+                sh 'mvn sonar:sonar -Dsonar.projectKey=notification -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_AUTH_TOKEN'
+            }
+        }
+        
+
 		stage('Quality Gate') {
 			steps {
 				timeout(time: 3, unit: 'MINUTES') {
