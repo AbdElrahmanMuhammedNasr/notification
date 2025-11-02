@@ -65,16 +65,22 @@ pipeline {
 			}
 		}*/
 
+		stage('SonarQube Analysis') {
+    environment {
+        SONAR_AUTH_TOKEN = credentials('sonar-token')
+    }
+    steps {
+        sh '''
+            mvn sonar:sonar \
+              -Dsonar.projectKey=notification \
+              -Dsonar.host.url=$SONAR_HOST_URL \
+              -Dsonar.token=$SONAR_AUTH_TOKEN
+        '''
+    }
+}
 
-	stage('SonarQube Analysis') {
-            environment {
-                SONAR_AUTH_TOKEN = credentials('sonar-token') 
-            }
-            steps {
-                sh 'mvn sonar:sonar -Dsonar.projectKey=notification -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_AUTH_TOKEN'
-            }
-        }
-        
+
+		
 
 		stage('Quality Gate') {
 			steps {
