@@ -66,18 +66,13 @@ pipeline {
 		}*/
 
 		stage('SonarQube Analysis') {
-    environment {
-        SONAR_AUTH_TOKEN = credentials('sonar-token')
-    }
-    steps {
-        sh '''
-            mvn sonar:sonar \
-              -Dsonar.projectKey=notification \
-              -Dsonar.host.url=$SONAR_HOST_URL \
-              -Dsonar.token=$SONAR_AUTH_TOKEN
-        '''
-    }
-}
+			    def scannerHome = tool name: 'scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+
+                    withSonarQubeEnv('soner-qube') {
+                        sh "echo $pwd"
+                        sh "${scannerHome}/bin/sonar-scanner"
+                    }
+                  }
 
 
 		
