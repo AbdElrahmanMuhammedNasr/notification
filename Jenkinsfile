@@ -69,7 +69,7 @@ pipeline {
 stage('SonarQube analysis') {
 		steps {
     withSonarQubeEnv(credentialsId: 'sonar-token', installationName: 'soner-qube') {
-      sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.1.2184:sonar'
+      sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.11.0.3922:sonar'
     }
 		}
   }
