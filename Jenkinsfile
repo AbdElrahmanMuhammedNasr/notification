@@ -69,7 +69,13 @@ pipeline {
 stage('SonarQube analysis') {
 		steps {
     withSonarQubeEnv(credentialsId: 'sonar-token', installationName: 'soner-qube') {
-      sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.11.0.3922:sonar'
+    //  sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.11.0.3922:sonar'
+		sh '''
+        mvn clean verify sonar:sonar \
+          -Dsonar.projectKey=notifications \
+          -Dsonar.host.url=http://host.docker.internal:9000
+      '''
+		
     }
 		}
   }
