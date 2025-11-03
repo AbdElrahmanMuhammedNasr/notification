@@ -66,13 +66,17 @@ pipeline {
 		}*/
 
 		stage('SonarQube Analysis') {
+			steps {
 			    def scannerHome = tool name: 'scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
 
                     withSonarQubeEnv('soner-qube') {
                         sh "echo $pwd"
                         sh "${scannerHome}/bin/sonar-scanner"
                     }
-                  }
+			}
+		}
+    
+
 
 
 		
