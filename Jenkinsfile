@@ -65,16 +65,12 @@ pipeline {
 			}
 		}*/
 
-		stage('SonarQube Analysis') {
-			steps {
-			    def scannerHome = tool name: 'scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
 
-                    withSonarQubeEnv('soner-qube') {
-                        sh "echo $pwd"
-                        sh "${scannerHome}/bin/sonar-scanner"
-                    }
-			}
-		}
+stage('SonarQube analysis') {
+    withSonarQubeEnv(credentialsId: 'sonar-token', installationName: 'sonar-qube') {
+      sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.11.0.3922:sonar'
+    }
+  }
     
 
 
